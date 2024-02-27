@@ -1,25 +1,25 @@
-package com.davidlima.LimaHotelDemo.model;
+package com.davidlima.LimaHotelDemo.response;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.LocalDate;
 
 /**
- * Description of BookedRoom.
+ * Description of BookingResponse.
  *
  * @author David Lima
  */
 
-@Entity
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BookedRoom {
+public class BookingResponse {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//generated primary key
@@ -49,25 +49,12 @@ public class BookedRoom {
     @Column(name = "confirmation_Code")
     private String bookingConfirmationCode;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "room_Id")
-    private Room    room;
+    private RoomResponse room;
 
-    public void calculateTotalNumberOfGuest(){
-        this.totalNumOfGuest = this.NumOfAdults + NumOfChildren;
-    }
-
-    public void setNumOfAdults(int numOfAdults) {
-        NumOfAdults = numOfAdults;
-        calculateTotalNumberOfGuest();
-    }
-
-    public void setNumOfChildren(int numOfChildren) {
-        NumOfChildren = numOfChildren;
-        calculateTotalNumberOfGuest();
-    }
-
-    public void setBookingConfirmationCode(String bookingConfirmationCode) {
+    public BookingResponse(Long booKingId, LocalDate checkInDate, LocalDate checkOutDate, String bookingConfirmationCode) {
+        this.booKingId = booKingId;
+        this.checkInDate = checkInDate;
+        this.checkOutDate = checkOutDate;
         this.bookingConfirmationCode = bookingConfirmationCode;
     }
 }
