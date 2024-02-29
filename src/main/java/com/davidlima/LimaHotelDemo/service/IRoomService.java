@@ -1,5 +1,13 @@
 package com.davidlima.LimaHotelDemo.service;
 
+import com.davidlima.LimaHotelDemo.model.Room;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.sql.SQLException;
+import java.util.List;
+
 /**
  * Description of IRoomService.
  *
@@ -7,4 +15,7 @@ package com.davidlima.LimaHotelDemo.service;
  */
 
 public interface IRoomService {
+    Room addNewRoom(MultipartFile photo, String roomType, BigDecimal roomPrice) throws SQLException, IOException;
+
+    List<String> getAllRoomTypes();
 }

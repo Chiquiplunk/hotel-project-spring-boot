@@ -21,38 +21,28 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class BookingResponse {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)//generated primary key
-    private Long booKingId;
+    private Long id;
 
-    @Column(name = "check_In")
     private LocalDate checkInDate;
 
-    @Column(name = "check_Out")
     private LocalDate checkOutDate;
 
-    @Column(name = "guest_FullName")
     private String guestName;
 
-    @Column(name = "guest_Email")
     private String guestEmail;
 
-    @Column(name = "adults")
-    private int NumOfAdults;
+    private int numOfAdults;
 
-    @Column(name = "children")
-    private int NumOfChildren;
+    private int numOfChildren;
 
-    @Column(name = "total_Guest")
-    private int totalNumOfGuest;
+    private int totalNumOfGuests;
 
-    @Column(name = "confirmation_Code")
     private String bookingConfirmationCode;
 
     private RoomResponse room;
 
-    public BookingResponse(Long booKingId, LocalDate checkInDate, LocalDate checkOutDate, String bookingConfirmationCode) {
-        this.booKingId = booKingId;
+    public BookingResponse(Long id, LocalDate checkInDate, LocalDate checkOutDate, String bookingConfirmationCode) {
+        this.id = id;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
         this.bookingConfirmationCode = bookingConfirmationCode;

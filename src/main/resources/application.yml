@@ -14,6 +14,6 @@ spring:
       format_sql: true
   servlet:
     multipart:
-      max-file-size: 5MB
-      max-request-size: 5MB
+      max-file-size: 6MB
+      max-request-size: 6MB
       file-size-threshold: 2KB

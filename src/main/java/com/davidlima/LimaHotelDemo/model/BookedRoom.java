@@ -32,7 +32,7 @@ public class BookedRoom {
     private LocalDate checkOutDate;
 
     @Column(name = "guest_FullName")
-    private String guestName;
+    private String guestFullName;
 
     @Column(name = "guest_Email")
     private String guestEmail;
@@ -51,7 +51,7 @@ public class BookedRoom {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "room_Id")
-    private Room    room;
+    private Room room;
 
     public void calculateTotalNumberOfGuest(){
         this.totalNumOfGuest = this.NumOfAdults + NumOfChildren;
@@ -70,5 +70,6 @@ public class BookedRoom {
     public void setBookingConfirmationCode(String bookingConfirmationCode) {
         this.bookingConfirmationCode = bookingConfirmationCode;
     }
+
 }
 
